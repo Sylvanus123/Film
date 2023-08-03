@@ -5,11 +5,31 @@ import numpy as np
 import streamlit as st
 from numpy import sqrt
 import sqlite3
+import os
 
-file_path = "~/.streamlit/data/movies.csv"
-file_path = "~/.streamlit/data/ratings.csv"
+# Vérifier si le fichier existe dans le chemin absolu local
+local_file_path = r'C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\movies.csv'
+if os.path.exists(local_file_path):
+    # Charger le fichier depuis le chemin absolu local
+    file_path = local_file_path
+else:
+    # Charger le fichier depuis le chemin relatif sur Streamlit Cloud
+    file_path = "~/.streamlit/data/movies.csv"    
+
+# Chargement des données
 movies_df = pd.read_csv(file_path)
+
+local_file_path = r'C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\ratings.csv'
+if os.path.exists(local_file_path):
+    # Charger le fichier depuis le chemin absolu local
+    file_path = local_file_path
+else:
+    # Charger le fichier depuis le chemin relatif sur Streamlit Cloud
+    file_path = "~/.streamlit/data/ratings.csv"
+
+# Chargement des données
 ratings_df = pd.read_csv(file_path)
+
     
 def get_movie_recommendations(userInput, movies_df, ratings_df, top_n=10):
     # Récupérer les utilisateurs ayant vu les films notés par notre utilisateur actif
@@ -89,8 +109,6 @@ userInput = [
 ]
 
 
-file_path = "~/.streamlit/data/movies.csv"
-file_path = "~/.streamlit/data/ratings.csv"
 movies_df = pd.read_csv(file_path)
 ratings_df = pd.read_csv(file_path)
 
@@ -101,8 +119,6 @@ print(recommended_movies)
 def movie_recommendation_app():
     # Charger les données
     
-    file_path = "~/.streamlit/data/movies.csv"
-    file_path = "~/.streamlit/data/ratings.csv"
     movies_df = pd.read_csv(file_path)
     ratings_df = pd.read_csv(file_path)
    
