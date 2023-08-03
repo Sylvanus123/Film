@@ -6,9 +6,11 @@ import streamlit as st
 from numpy import sqrt
 import sqlite3
 
+file_path = pd.read_csv("C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\movies.csv")
+file_path = pd.read_csv("C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\ratings.csv")
 
-movies_df = pd.read_csv(r'C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\movies.csv')
-ratings_df = pd.read_csv(r'C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\ratings.csv')
+movies_df = pd.read_csv(file_path)
+ratings_df = pd.read_csv(file_path)
 
 def get_movie_recommendations(userInput, movies_df, ratings_df, top_n=10):
     # Récupérer les utilisateurs ayant vu les films notés par notre utilisateur actif
@@ -87,8 +89,12 @@ userInput = [
     {'title': 'Akira', 'rating': 4.5}
 ]
 
-movies_df = pd.read_csv(r'C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\movies.csv')
-ratings_df = pd.read_csv(r'C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\ratings.csv')
+
+file_path = pd.read_csv("C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\movies.csv")
+file_path = pd.read_csv("C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\ratings.csv")
+
+movies_df = pd.read_csv(file_path)
+ratings_df = pd.read_csv(file_path)
 
 recommended_movies = get_movie_recommendations(userInput, movies_df, ratings_df, top_n=10)
 print(recommended_movies)
@@ -96,8 +102,12 @@ print(recommended_movies)
 
 def movie_recommendation_app():
     # Charger les données
-    movies_df = pd.read_csv(r'C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\movies.csv')
-    ratings_df = pd.read_csv(r'C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\ratings.csv')
+    
+    file_path = pd.read_csv("C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\movies.csv")
+    file_path = pd.read_csv("C:\Users\Mr SYLVANUS\Desktop\MovieRecommendationApp\data\ratings.csv")
+    movies_df = pd.read_csv(file_path)
+    ratings_df = pd.read_csv(file_path)
+   
 
     # Titre de l'application
     st.title("Système de Recommandation de Films")
